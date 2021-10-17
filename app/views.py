@@ -182,7 +182,7 @@ def address(request):
 	if request.user.is_authenticated:
 		totalitem = len(Cart.objects.filter(user=request.user))
 	add = Customer.objects.filter(user=request.user)
-	return render(request, 'app/address.html', {'add':add, 'active':'btn-primary', 'totalitem':totalitem})
+	return render(request, 'app/address.html', {'add':add, 'active':'btn-info', 'totalitem':totalitem})
 
 @login_required
 def orders(request):
@@ -238,7 +238,7 @@ class ProfileView(View):
 		if request.user.is_authenticated:
 			totalitem = len(Cart.objects.filter(user=request.user))
 		form = CustomerProfileForm()
-		return render(request, 'app/profile.html', {'form':form, 'active':'btn-primary', 'totalitem':totalitem})
+		return render(request, 'app/profile.html', {'form':form, 'active':'btn-info', 'totalitem':totalitem})
 		
 	def post(self, request):
 		totalitem = 0
